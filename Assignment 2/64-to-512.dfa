@@ -1,0 +1,79 @@
+.ALPHABET
+- 0-9
+.STATES
+start
+negative
+positive!
+neg_two!
+neg_greater_1!
+neg_greater_2!
+neg_two_five!
+pos_five!
+pos_greater_1!
+pos_greater_2!
+pos_five_one!
+neg_two_below!
+neg_two_below_below!
+pos_five_below!
+pos_five_below_below!
+neg_two_above!
+pos_five_above!
+pos_zero!
+pos_1_4!
+pos_1_4_two!
+pos_1_4_three!
+neg_one!
+neg_one_two!
+neg_one_three!
+invalid
+.TRANSITIONS
+invalid - 0-9 invalid
+start - negative
+start 0 pos_zero
+start 1-4 pos_1_4
+start 5 pos_five
+start 6-9 pos_greater_1
+negative 0 invalid
+negative 3-9 neg_greater_1
+negative 1 neg_one
+negative 2 neg_two
+neg_one 0-9 neg_one_two
+neg_one_two 0-9 neg_one_three
+neg_one_three 0-9 invalid
+neg_greater_1 0-9 neg_greater_2
+neg_greater_2 0-9 invalid
+neg_two 0-4 neg_two_below
+neg_two 5 neg_two_five
+neg_two 6-9 neg_two_above
+neg_two_below 0-9 neg_two_below_below
+neg_two_below_below 0-9 invalid
+neg_two_five 0-6 neg_two_below_below
+neg_two_five 7-9 invalid
+neg_two_above 0-9 invalid
+pos_zero 0-9 invalid
+pos_1_4 0-9 pos_1_4_two
+pos_1_4_two 0-9 pos_1_4_three
+pos_1_4_three 0-9 invalid
+pos_five 0 pos_five_below
+pos_five 1 pos_five_one
+pos_five 2-9 pos_five_above
+pos_five_below 0-9 pos_five_below_below
+pos_five_below_below 0-9 invalid
+pos_five_one 0-2 pos_five_below_below
+pos_five_one 3-9 invalid
+pos_five_above 0-9 invalid
+pos_greater_1 0-9 pos_greater_2
+pos_greater_2 0-9 invalid
+.INPUT
+-256 -200 -199 -100 -10 -1
+0
+1 5 10 49 50 51 99 100 199 200 256 300 400 499 500 509 510 511 512
+-17 -55 -123 -245 -25 -255 -265 -256 -251
+7 25 88 123 222 367 421
+-257 -300 -999
+513 600 999 1000
+00 012 001 -01 -009
+-0
+000 0512 0513 -0256
+-
+.EMPTY
