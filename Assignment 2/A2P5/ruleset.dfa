@@ -1,0 +1,65 @@
+.ALPHABET
+. a-z A-Z : $ - , ( ) 0-9
+.STATES
+start
+
+dir_head
+directive!
+
+id!
+label!
+
+zero!
+zero_x
+hexint!
+dec!
+negative
+
+dollar
+reg!
+reg_two!
+
+comma!
+
+lparen!
+rparen!
+
+.TRANSITIONS
+start . dir_head
+dir_head a-z directive
+dir_head A-Z directive
+directive a-z directive
+directive A-Z directive
+directive 0-9 directive
+
+start a-z id
+start A-Z id
+id a-z id
+id A-Z id
+id 0-9 id
+
+id : label
+
+start 0 zero
+zero x zero_x
+zero_x 0-9 hexint
+zero_x a-f hexint
+zero_x A-F hexint
+hexint 0-9 hexint
+hexint a-f hexint
+hexint A-F hexint
+
+start $ dollar
+dollar 0-9 reg
+reg 0-9 reg_two
+
+start - negative
+negative 1-9 dec
+dec 0-9 dec
+start 1-9 dec
+
+start , comma
+start ( lparen
+start ) rparen
+
+.INPUT

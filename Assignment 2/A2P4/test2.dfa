@@ -1,0 +1,13 @@
+.ALPHABET
+0-9 + - * /
+.STATES
+start num num! op op!
+.TRANSITIONS
+start 0-9 num
+num 0-9 num
+start + op
+start - op
+start * op
+start / op
+.INPUT
+12+34*5-678

@@ -1,5 +1,5 @@
 .ALPHABET
-a l f
+a l f t
 .STATES
 start
 seen_a
@@ -30,8 +30,7 @@ seen_alfalf a seen_alfalfa
 seen_alfalf l f start
 seen_alfalfa a l f seen_alfalfa
 .INPUT
-test
 alfalfa
 alfalf
-testalfalfa
-talfalfasaf
+lalfalfa
+talfalfaaf

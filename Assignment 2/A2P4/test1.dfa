@@ -1,0 +1,12 @@
+.ALPHABET
+a-z A-Z 0-9 $
+.STATES
+start id id!
+.TRANSITIONS
+start a-z id
+start A-Z id
+id a-z id
+id A-Z id
+id 0-9 id
+.INPUT
+abcfoo123BarZ9
